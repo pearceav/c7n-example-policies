@@ -1,0 +1,12 @@
+policies:
+  - name: find-never-expire-log-groups
+    resource: log-group
+    description: |
+      Finds CloudWatch Log Groups with retention set to never expire and make them expire in 100 days.
+    filters:
+      - type: value
+        key: retentionInDays
+        value: absent
+    actions:
+      - type: retention
+          days: 100
