@@ -9,4 +9,4 @@ policies:
         value: absent
     actions:
       - type: retention
-          days: 100
+          days: 30
