@@ -1,0 +1,11 @@
+policies:
+  - name: ebs-gp3-upgrade
+    resource: ebs
+    description: |
+      Auto convert volumes from GP2 to GP3.
+    filters:
+      - VolumeType: gp2
+      - modifyable
+    actions:
+      - type: modify
+        volume-type: gp3
