@@ -1,6 +1,6 @@
 # 💰 [Cloud Custodian](https://cloudcustodian.io/) Example Policies
 
-This repository contains a curated set of Cloud Custodian policies focused on identifying cost saving opportunities across major areas of cloud infrastructure. These policies are designed to be plug-and-play—ready to deploy in your environment with minimal customization.
+This repository contains a curated set of Cloud Custodian policies for identifying cost saving opportunities across major areas of (AWS) cloud infrastructure. These policies are designed to be plug-and-play—ready to deploy in your environment with minimal customization.
 
 ## 🎯 Objectives
 
@@ -48,9 +48,19 @@ These policies serve not only to optimize cost but also to enforce good practice
 - Cloud credentials with read and write permissions to target services
 - Optional: AWS CLI, Azure CLI, or GCP SDK (depending on your cloud provider)
 
+## Usage
+
 Install Cloud Custodian:
 
+Bash:
 ```bash
+sudo apt update; sudo apt upgrade -y; python3 -m venv custodian; source custodian/bin/activate; pip install c7n
+```
+Windows:
+```pwsh
+python3 -m venv custodian
+.\custodian\Scripts\Activate.ps1 # For Powershell users
+# .\custodian\Scripts\activate.bat # Or use this for CMD users
 pip install c7n
 ```
 ## 🙌 Contributions
