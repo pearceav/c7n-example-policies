@@ -1,5 +1,5 @@
 policies:
-  - name: find-never-expire-log-groups
+  - name: cloudwatch-log-retention-never-expire
     resource: log-group
     description: |
       Finds CloudWatch Log Groups with retention set to
@@ -10,4 +10,4 @@ policies:
         value: absent
     actions:
       - type: retention
-          days: 30
+          days: 90
