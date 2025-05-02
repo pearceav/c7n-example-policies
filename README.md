@@ -1,6 +1,6 @@
-# 💰 Cloud Custodian Example Policies
+# 💰 [Cloud Custodian](https://cloudcustodian.io/) Example Policies
 
-This repository contains a curated set of Cloud Custodian policies focused on identifying cost saving opportunities across major areas of cloud infrastructure. These policies are designed to be **plug-and-play**—ready to deploy in your environment with minimal customization.
+This repository contains a curated set of Cloud Custodian policies focused on identifying cost saving opportunities across major areas of cloud infrastructure. These policies are designed to be plug-and-play—ready to deploy in your environment with minimal customization.
 
 ## 🎯 Objectives
 
@@ -60,3 +60,7 @@ Contributions are welcome! Please feel free to submit:
 - Enhancements to existing rules
 - Suggestions for new areas of coverage
 - Documentation improvements
+
+## Additional Readings
+
+[cloud-custodian/cloud-custodian](https://github.com/cloud-custodian/cloud-custodian)
