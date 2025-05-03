@@ -1,24 +1,13 @@
 policies:
-  - name: ec2-r6i-xlarge-scale-down-low-cpu
+  - name: ec2-stopped-instances-terminate
     resource: ec2
     description: |
-      Find r6i.xlarge EC2 instances with CPU utilization below 50% for the past 3 months and scale them down to r6i.large.
+      Terminate EC2 instances that have been stopped > 30 days.
     filters:
-      - type: instance-type
-        key: InstanceType
-        value: r6i.xlarge
-
-      - type: metrics
-        name: CPUUtilization
-        statistic: Average
-        period: 300        # 5 minutes
-        days: 90
-        op: lt
-        value: 50
-
-      - "State.Name": "running"
-
+      - "State.Name": stopped
+      - type: state-age
+        op: ge
+        days: 30
     actions:
-      - type: resize
-        instance-type: r6i.large
-        restart: true
+      - type: terminate
+        true
