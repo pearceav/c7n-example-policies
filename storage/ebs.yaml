@@ -1,8 +1,8 @@
 policies:
-  - name: ebs-mark-zombies
+  - name: ebs-mark-unused
     resource: ebs
     description: |
-      Mark unattached old ebs volumes.
+      Mark unattached ebs volumes.
     filters:
       - Attachments: []
     actions:
