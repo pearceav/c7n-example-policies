@@ -1,0 +1,21 @@
+policies:
+  - name: ebs-mark-zombies
+    resource: ebs
+    description: |
+      Mark unattached old ebs volumes.
+    filters:
+      - Attachments: []
+    actions:
+      - type: mark-for-op
+        op: delete
+        days: 30
+        
+  - name: ebs-delete-marked
+    resource: ebs
+    description: |
+      Delete volumes that are marked.
+    filters:
+      - type: marked-for-op
+        op: delete
+    actions:
+      - delete
