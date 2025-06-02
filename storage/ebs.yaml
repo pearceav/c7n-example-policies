@@ -7,15 +7,31 @@ policies:
       - Attachments: []
     actions:
       - type: mark-for-op
+        tag: iaas_c7n_cleanup
         op: delete
         days: 30
-        
+
+  - name: ebs-unmark-attached
+    resource: ebs
+    description: |
+      Unmark any attached EBS volumes that were scheduled for deletion
+      if they are currently attached.
+    filters:
+      - tag:iaas_c7n_cleanup: not-null
+      - type: value
+        key: Attachements[0].Device
+        vlaue: not-null
+    actions:
+      - type: remove-tag
+        tags: ['iaas_c7n_cleanup']
+    
   - name: ebs-delete-marked
     resource: ebs
     description: |
       Delete volumes that are marked.
     filters:
       - type: marked-for-op
+        tag: iaas_c7n_cleanup
         op: delete
     actions:
       - delete
